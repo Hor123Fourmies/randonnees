@@ -59,18 +59,20 @@ $id_randonnee_post = $_POST['id'];
 
 
 
-
+/*
 if (isset ($id_randonnee_post)){
     $selection = "SELECT * FROM hiking WHERE id = $id_randonnee_post";
     $result = $conn->query($selection);
-
+}
+*/
 
     $update = "UPDATE hiking SET name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference' WHERE id=$id_randonnee_post";
     echo "<br>";
 
-    $result2 = $conn->query($update);
-}
-/*
+    $conn->query($update);
+    echo $conn->error;
+
+
 $randonnee = "SELECT * FROM `hiking` WHERE id=$id_randonnee";
 $result = $conn->query($randonnee);
 echo $conn->error;
@@ -80,7 +82,6 @@ while ($row = $result->fetch_assoc()) {
 //echo "Distance à parcourir : " . $row['distance'] . "<br>";
 //echo "Durée de la randonnée : " . $row['duration'] . "<br>";
 //echo "<br>";
-*/
 
 ?>
 
@@ -100,7 +101,6 @@ while ($row = $result->fetch_assoc()) {
     <div>
         <label for="difficulty">Difficulté</label>
         <select name="difficulty">
-            <option value="" style="color: red"><?php echo $row['difficulty'] ?></option>
             <option value="très facile">Très facile</option>
             <option value="facile">Facile</option>
             <option value="moyen">Moyen</option>
@@ -128,13 +128,13 @@ while ($row = $result->fetch_assoc()) {
 
 
 <?php
-
-if($update->execute()){
+echo "<br>";
+if ($conn->query($update)) {
     print "La randonnée <span style='font-weight: bold'>$name</span> a bien été mise à jour.";
-}else{
+} else {
     print $conn->error;
 }
-
+}
 
 
 /*
