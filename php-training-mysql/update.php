@@ -6,12 +6,81 @@
 	<link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
+<!--
 	<a href="/php-pdo/read.php">Liste des données</a>
-	<h1>Ajouter</h1>
+-->
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "reunion_island";
+
+$conn = new mysqli($servername, $username, $password);
+$conn->select_db($dbname);
+
+/*
+$id_randonnee = $_GET['id'];
+
+$name = $_GET['name'];
+$difficulty = $_GET['difficulty'];
+$distance = $_GET['distance'];
+$duration = $_GET['duration'];
+$height_difference = $_GET['height_difference'];
+
+
+$randonnee = "SELECT * FROM `hiking` WHERE id=$id_randonnee";
+$result = $conn->query($randonnee);
+echo $conn->error;
+
+while ($row = $result->fetch_assoc()) {
+    echo "ID de la randonnée : " . $row['id'] . "<br>";
+    echo "Nom de la randonnée : " . $row['name'] . "<br>";
+    echo "Distance à parcourir : " . $row['distance'] . "<br>";
+    echo "Durée de la randonnée : " . $row['duration'] . "<br>";
+    echo "<br>";
+}
+
+
+*/
+
+
+
+
+?>
+<?php
+$name = $_POST['name'];
+$difficulty = $_POST['difficulty'];
+$distance = $_POST['distance'];
+$duration = $_POST['duration'];
+$height_difference = $_POST['height_difference'];
+
+$id_randonnee = $_GET['id'];
+
+$id_randonnee_post = $_POST['id'];
+
+if (isset ($id_randonnee_post)){
+    $selection = "SELECT * FROM hiking WHERE id = $id_randonnee_post";
+    $result = $conn->query($selection);
+
+    $update = "UPDATE hiking SET name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference' WHERE id=$id_randonnee_post";
+    echo "<br>";
+
+    $result2 = $conn->query($update);
+}
+
+?>
+
+    <a href="read.php">Liste des données</a>
+
+	<h1>Modifier</h1>
 	<form action="" method="post">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $id_randonnee;?>">
+        </div>
 		<div>
 			<label for="name">Name</label>
-			<input type="text" name="name" value="">
+			<input type="text" name="name" value="<?php echo $name?>">
 		</div>
 
 		<div>
@@ -37,7 +106,27 @@
 			<label for="height_difference">Dénivelé</label>
 			<input type="text" name="height_difference" value="">
 		</div>
-		<button type="button" name="button">Envoyer</button>
+		<button type="submit" name="button">Envoyer</button>
 	</form>
 </body>
 </html>
+
+
+<?php
+/*
+
+$update = "UPDATE hiking SET (name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference') WHERE id=$id_randonnee)";
+echo "<br>";
+
+if (mysqli_query($conn, $update)) {
+echo "La modification a bien été effectuée";
+} else {
+echo "Erreur de mise à jour : " . mysqli_error($conn);
+}
+
+mysqli_close($conn);
+*/
+
+
+
+

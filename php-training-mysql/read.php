@@ -43,7 +43,10 @@ $conn->select_db($dbname);
 
                         <tr>
                             <td>
-                                <?php echo $row['name'] . "<br>";?>
+                                <?php
+                                $id_randonnee = $row['id'];
+                                "<input type = hidden >";
+                                echo "<a href = 'update.php?id=$id_randonnee'>". $row['name'] . "</a>". "<br>";?>
                             </td>
                             <td>
                                 <?php echo $row['difficulty'] . "<br>";?>

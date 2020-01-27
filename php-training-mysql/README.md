@@ -87,7 +87,7 @@ Lorsque vous aurez supprimé, il faudra revenir de façon automatique
 (sans que l'internaute ne fasse quoique ce soit) vers la page *read.php*.
 
 TIPS : Pour la redirection vers la page *read.php*, 
-vous devriez probablement jetez un coup d'oeil à la fonction 
+vous devriez probablement jeter un coup d'oeil à la fonction 
 [header()](http://php.net/manual/fr/function.header.php)
 
 # ALLER PLUS LOIN
