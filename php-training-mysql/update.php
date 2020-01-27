@@ -44,9 +44,6 @@ while ($row = $result->fetch_assoc()) {
 
 */
 
-
-
-
 ?>
 <?php
 $name = $_POST['name'];
@@ -59,60 +56,87 @@ $id_randonnee = $_GET['id'];
 
 $id_randonnee_post = $_POST['id'];
 
+
+
+
+
 if (isset ($id_randonnee_post)){
     $selection = "SELECT * FROM hiking WHERE id = $id_randonnee_post";
     $result = $conn->query($selection);
+
 
     $update = "UPDATE hiking SET name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference' WHERE id=$id_randonnee_post";
     echo "<br>";
 
     $result2 = $conn->query($update);
 }
+/*
+$randonnee = "SELECT * FROM `hiking` WHERE id=$id_randonnee";
+$result = $conn->query($randonnee);
+echo $conn->error;
+
+while ($row = $result->fetch_assoc()) {
+//echo "Nom de la randonnée : " . $row['name'] . "<br>";
+//echo "Distance à parcourir : " . $row['distance'] . "<br>";
+//echo "Durée de la randonnée : " . $row['duration'] . "<br>";
+//echo "<br>";
+*/
 
 ?>
 
-    <a href="read.php">Liste des données</a>
 
-	<h1>Modifier</h1>
-	<form action="" method="post">
-        <div>
-            <input type="hidden" name="id" value="<?php echo $id_randonnee;?>">
-        </div>
-		<div>
-			<label for="name">Name</label>
-			<input type="text" name="name" value="<?php echo $name?>">
-		</div>
+<a href="read.php">Liste des données</a>
 
-		<div>
-			<label for="difficulty">Difficulté</label>
-			<select name="difficulty">
-				<option value="très facile">Très facile</option>
-				<option value="facile">Facile</option>
-				<option value="moyen">Moyen</option>
-				<option value="difficile">Difficile</option>
-				<option value="très difficile">Très difficile</option>
-			</select>
-		</div>
-		
-		<div>
-			<label for="distance">Distance</label>
-			<input type="text" name="distance" value="">
-		</div>
-		<div>
-			<label for="duration">Durée</label>
-			<input type="duration" name="duration" value="">
-		</div>
-		<div>
-			<label for="height_difference">Dénivelé</label>
-			<input type="text" name="height_difference" value="">
-		</div>
-		<button type="submit" name="button">Envoyer</button>
-	</form>
+<h1>Modifier</h1>
+<form action="" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $id_randonnee; ?>">
+    </div>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" value="<?php echo $row['name'] ?>">
+    </div>
+
+    <div>
+        <label for="difficulty">Difficulté</label>
+        <select name="difficulty">
+            <option value="" style="color: red"><?php echo $row['difficulty'] ?></option>
+            <option value="très facile">Très facile</option>
+            <option value="facile">Facile</option>
+            <option value="moyen">Moyen</option>
+            <option value="difficile">Difficile</option>
+            <option value="très difficile">Très difficile</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="distance">Distance</label>
+        <input type="text" name="distance" value="<?php echo $row['distance'] ?>">
+    </div>
+    <div>
+        <label for="duration">Durée</label>
+        <input type="duration" name="duration" value="<?php echo $row['duration'] ?>">
+    </div>
+    <div>
+        <label for="height_difference">Dénivelé</label>
+        <input type="text" name="height_difference" value="<?php echo $row['height_difference'] ?>">
+    </div>
+    <button type="submit" name="button">Mettre à jour</button>
+</form>
 </body>
 </html>
 
 
 <?php
+
+if($update->execute()){
+    print "La randonnée <span style='font-weight: bold'>$name</span> a bien été mise à jour.";
+}else{
+    print $conn->error;
+}
+
+
+
 /*
 
 $update = "UPDATE hiking SET (name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference') WHERE id=$id_randonnee)";
@@ -127,6 +151,6 @@ echo "Erreur de mise à jour : " . mysqli_error($conn);
 mysqli_close($conn);
 */
 
-
+?>
 
 
