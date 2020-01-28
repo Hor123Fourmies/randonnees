@@ -66,12 +66,13 @@ if(empty($name)) {
 }
 
 
-
+/*
 if (isset($name) && isset($difficulty) && isset($distance) && isset($duration) && isset ($height_difference)){
 }
 
 if (!empty($name) && !empty($difficulty) && !empty($distance) && !empty($duration) && !empty($height_difference)){
 }
+*/
 
 /*
 if (isset ($id_randonnee_post)){
@@ -79,13 +80,6 @@ if (isset ($id_randonnee_post)){
     $result = $conn->query($selection);
 }
 */
-
-    $update = "UPDATE hiking SET name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference' WHERE id=$id_randonnee_post";
-    echo "<br>";
-
-    $conn->query($update);
-    echo $conn->error;
-
 
 $randonnee = "SELECT * FROM `hiking` WHERE id=$id_randonnee";
 $result = $conn->query($randonnee);
@@ -117,11 +111,11 @@ echo "<br><br>";
     <div>
         <label for="difficulty">Difficulté</label>
         <select name="difficulty">
-            <option value="très facile"<?php if ($difficulty === 'très facile') { echo ' selected';}else{echo ""; } ?>>Très facile</option>
-            <option value="facile"<?php if ($difficulty === 'facile') { echo ' selected';}else{echo ""; } ?>>Facile</option>
-            <option value="moyen"<?php if ($difficulty === 'moyen') { echo ' selected'; } ?>>Moyen</option>
-            <option value="difficile"<?php if ($difficulty === 'difficile') { echo ' selected'; } ?>>Difficile</option>
-            <option value="très difficile"<?php if ($difficulty === 'très difficile') { echo ' selected'; } ?>>Très difficile</option>
+            <option value="très facile"<?php if ($difficulty === 'très facile') { echo "select =  'selected'";}?>>Très facile</option>
+            <option value="facile"<?php if ($difficulty === 'facile') { echo "select =  'selected'";} ?>>Facile</option>
+            <option value="moyen"<?php if ($difficulty === 'moyen') { echo "select =  'selected'";} ?>>Moyen</option>
+            <option value="difficile"<?php if ($difficulty === 'difficile') { echo "select =  'selected'";} ?>>Difficile</option>
+            <option value="très difficile"<?php if ($difficulty === 'très difficile') {echo "select =  'selected'";}?>>Très difficile</option>
         </select>
     </div>
 
@@ -144,13 +138,23 @@ echo "<br><br>";
 
 
 <?php
-echo "<br>";
+}
+
+$update = "UPDATE hiking SET name = '$name', difficulty = '$difficulty', distance = '$distance' , duration = '$duration', height_difference = '$height_difference' WHERE id=$id_randonnee_post";
+
+$conn->query($update);
+echo $conn->error;
+
+echo "<br><br>";
+
+
 if ($conn->query($update)) {
     print "La randonnée <span style='font-weight: bold'>$name</span> a bien été mise à jour.";
 } else {
     print $conn->error;
 }
-}
+
+
 
 
 /*
