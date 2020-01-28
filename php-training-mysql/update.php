@@ -40,12 +40,15 @@ while ($row = $result->fetch_assoc()) {
     echo "Durée de la randonnée : " . $row['duration'] . "<br>";
     echo "<br>";
 }
-
-
 */
 
+
+
 ?>
+
 <?php
+
+
 $name = $_POST['name'];
 $difficulty = $_POST['difficulty'];
 $distance = $_POST['distance'];
@@ -56,8 +59,19 @@ $id_randonnee = $_GET['id'];
 
 $id_randonnee_post = $_POST['id'];
 
+if(empty($name)) {
+    echo 'La variable $name existe !';
+} else {
+    echo 'La variable $name n\'existe pas...';
+}
 
 
+
+if (isset($name) && isset($difficulty) && isset($distance) && isset($duration) && isset ($height_difference)){
+}
+
+if (!empty($name) && !empty($difficulty) && !empty($distance) && !empty($duration) && !empty($height_difference)){
+}
 
 /*
 if (isset ($id_randonnee_post)){
@@ -83,6 +97,8 @@ while ($row = $result->fetch_assoc()) {
 //echo "Durée de la randonnée : " . $row['duration'] . "<br>";
 //echo "<br>";
 
+echo "<br><br>";
+
 ?>
 
 
@@ -101,11 +117,11 @@ while ($row = $result->fetch_assoc()) {
     <div>
         <label for="difficulty">Difficulté</label>
         <select name="difficulty">
-            <option value="très facile">Très facile</option>
-            <option value="facile">Facile</option>
-            <option value="moyen">Moyen</option>
-            <option value="difficile">Difficile</option>
-            <option value="très difficile">Très difficile</option>
+            <option value="très facile"<?php if ($difficulty === 'très facile') { echo ' selected';}else{echo ""; } ?>>Très facile</option>
+            <option value="facile"<?php if ($difficulty === 'facile') { echo ' selected';}else{echo ""; } ?>>Facile</option>
+            <option value="moyen"<?php if ($difficulty === 'moyen') { echo ' selected'; } ?>>Moyen</option>
+            <option value="difficile"<?php if ($difficulty === 'difficile') { echo ' selected'; } ?>>Difficile</option>
+            <option value="très difficile"<?php if ($difficulty === 'très difficile') { echo ' selected'; } ?>>Très difficile</option>
         </select>
     </div>
 

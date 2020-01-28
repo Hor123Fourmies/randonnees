@@ -48,7 +48,7 @@ $conn->select_db($dbname);
 			<label for="height_difference">Dénivelé</label>
 			<input type="text" name="height_difference" value="">
 		</div>
-		<button type="submit" name="button">Envoyer</button>
+		<button type="submit" name="button">Ajouter</button>
 	</form>
 </body>
 </html>

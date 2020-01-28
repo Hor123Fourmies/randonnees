@@ -46,10 +46,10 @@ $conn->select_db($dbname);
                                 <?php
                                 $id_randonnee = $row['id'];
                                 "<input type = hidden >";
-                                echo "<a href = 'update.php?id=$id_randonnee'>". $row['name'] . "</a>". "<br>";?>
+                                echo "<a href = 'update.php?id=$id_randonnee'>" .utf8_encode($row['name']) . "</a>". "<br>";?>
                             </td>
                             <td>
-                                <?php echo $row['difficulty'] . "<br>";?>
+                                <?php echo utf8_encode($row['difficulty']) . "<br>";?>
                             </td>
                             <td>
                                 <?php echo $row['distance'] . "<br>";?>
@@ -59,6 +59,12 @@ $conn->select_db($dbname);
                             </td>
                             <td>
                                 <?php echo $row['height_difference'] . "<br>";?>
+                            </td>
+                            <td>
+                                <?php $id_randonnee = $row['id'];
+                                echo "<button type=\"submit\" name=\"button\" style = \"background: #f5f5a6; color:orange\"><a href = 'delete.php?id=$id_randonnee'>Supprimer</a></button>";
+                                echo "<br>";
+                                ?>
                             </td>
                         </tr>
                             <?php
