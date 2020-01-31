@@ -17,6 +17,7 @@ $conn->select_db($dbname);
 	<link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
+
 	<a href="/php-pdo/read.php">Liste des données</a>
 	<h1>Ajouter</h1>
 	<form action="" method="post">
@@ -59,10 +60,6 @@ $conn->select_db($dbname);
 //echo $_POST ['difficulty'];
 //$difficulte = $_POST['difficulty'];
 
-// Requêtes préparées pr garantir ce qu'on attend :
-// (éviter les malveillances)
-// ? = placeholder à la place des valeurs
-// On n'indique pas l'ID car auto-incrementation
 
 $name = $_POST['name'];
 $difficulty = $_POST['difficulty'];

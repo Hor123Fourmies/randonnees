@@ -5,6 +5,8 @@
 <?php
 /**** Supprimer une randonnée ****/
 
+session_start();
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -47,7 +49,7 @@ if ($conn->query($supprime)) {
     print $conn->error;
 }
 
-
+header ('location: read.php');
 
 ?>
 

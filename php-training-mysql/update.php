@@ -6,10 +6,10 @@
 	<link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-<!--
-	<a href="/php-pdo/read.php">Liste des données</a>
--->
+
 <?php
+
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -50,7 +50,7 @@ while ($row = $result->fetch_assoc()) {
 
 
 $name = $_POST['name'];
-$difficulty = $_POST['difficulty'];
+$difficulty = utf8_decode($_POST['difficulty']);
 $distance = $_POST['distance'];
 $duration = $_POST['duration'];
 $height_difference = $_POST['height_difference'];
@@ -111,11 +111,11 @@ echo "<br><br>";
     <div>
         <label for="difficulty">Difficulté</label>
         <select name="difficulty">
-            <option value="très facile"<?php if ($difficulty === 'très facile') { echo "select =  'selected'";}?>>Très facile</option>
-            <option value="facile"<?php if ($difficulty === 'facile') { echo "select =  'selected'";} ?>>Facile</option>
-            <option value="moyen"<?php if ($difficulty === 'moyen') { echo "select =  'selected'";} ?>>Moyen</option>
-            <option value="difficile"<?php if ($difficulty === 'difficile') { echo "select =  'selected'";} ?>>Difficile</option>
-            <option value="très difficile"<?php if ($difficulty === 'très difficile') {echo "select =  'selected'";}?>>Très difficile</option>
+            <option value="tres facile"<?php if ($difficulty === 'tres facile') { echo "select = 'selected'";}?>>Très facile</option>
+            <option value="facile"<?php if ($difficulty === 'facile') { echo "select = 'selected'";} ?>>Facile</option>
+            <option value="moyen"<?php if ($difficulty === 'moyen') { echo "select = 'selected'";} ?>>Moyen</option>
+            <option value="difficile"<?php if ($difficulty === 'difficile') { echo "select = 'selected'";} ?>>Difficile</option>
+            <option value="tres difficile"<?php if ($difficulty === 'tres difficile') {echo "select = 'selected'";}?>>Très difficile</option>
         </select>
     </div>
 
