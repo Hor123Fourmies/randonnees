@@ -46,7 +46,7 @@ $conn->select_db($dbname);
                                 <?php
                                 $id_randonnee = $row['id'];
                                 "<input type = hidden >";
-                                echo "<a href = 'update.php?id=$id_randonnee'>" .utf8_encode($row['name']) . "</a>". "<br>";?>
+                                echo "<a href = 'update.php?id=$id_randonnee'>" .utf8_decode($row['name']) . "</a>". "<br>";?>
                             </td>
                             <td>
                                 <?php echo utf8_encode($row['difficulty']) . "<br>";?>

@@ -111,11 +111,11 @@ echo "<br><br>";
     <div>
         <label for="difficulty">Difficulté</label>
         <select name="difficulty">
-            <option value="tres facile"<?php if ($difficulty === 'tres facile') { echo "select = 'selected'";}?>>Très facile</option>
-            <option value="facile"<?php if ($difficulty === 'facile') { echo "select = 'selected'";} ?>>Facile</option>
-            <option value="moyen"<?php if ($difficulty === 'moyen') { echo "select = 'selected'";} ?>>Moyen</option>
-            <option value="difficile"<?php if ($difficulty === 'difficile') { echo "select = 'selected'";} ?>>Difficile</option>
-            <option value="tres difficile"<?php if ($difficulty === 'tres difficile') {echo "select = 'selected'";}?>>Très difficile</option>
+            <option value="tres facile"<?php if (utf8_decode($row['difficulty']) === 'tres facile') { echo "selected = 'selected'";}?>>Tres facile</option>
+            <option value="facile"<?php if (utf8_decode($row['difficulty']) === 'facile') { echo "selected = 'selected'";} ?>>Facile</option>
+            <option value="moyen"<?php if (utf8_decode($row['difficulty']) === 'moyen') { echo "selected = 'selected'";} ?>>Moyen</option>
+            <option value="difficile"<?php if (utf8_decode($row['difficulty']) === 'difficile') { echo "selected = 'selected'";} ?>>Difficile</option>
+            <option value="tres difficile"<?php if (utf8_decode($row['difficulty']) === 'tres difficile') {echo "selected = 'selected'";}?>>Tres difficile</option>
         </select>
     </div>
 
