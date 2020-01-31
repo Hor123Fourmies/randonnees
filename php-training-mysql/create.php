@@ -39,15 +39,15 @@ $conn->select_db($dbname);
 		
 		<div>
 			<label for="distance">Distance</label>
-			<input type="text" name="distance" value="">
+			<input type="number" name="distance" value="">
 		</div>
 		<div>
 			<label for="duration">Durée</label>
-			<input type="duration" name="duration" value="">
+			<input type="number" name="duration" value="">
 		</div>
 		<div>
 			<label for="height_difference">Dénivelé</label>
-			<input type="text" name="height_difference" value="">
+			<input type="number" name="height_difference" value="">
 		</div>
 		<button type="submit" name="button">Ajouter</button>
 	</form>

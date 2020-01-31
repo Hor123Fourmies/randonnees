@@ -121,15 +121,15 @@ echo "<br><br>";
 
     <div>
         <label for="distance">Distance</label>
-        <input type="text" name="distance" value="<?php echo $row['distance'] ?>">
+        <input type="number" name="distance" value="<?php echo $row['distance'] ?>">
     </div>
     <div>
         <label for="duration">Durée</label>
-        <input type="duration" name="duration" value="<?php echo $row['duration'] ?>">
+        <input type="number" name="duration" value="<?php echo $row['duration'] ?>">
     </div>
     <div>
         <label for="height_difference">Dénivelé</label>
-        <input type="text" name="height_difference" value="<?php echo $row['height_difference'] ?>">
+        <input type="number" name="height_difference" value="<?php echo $row['height_difference'] ?>">
     </div>
     <button type="submit" name="button">Mettre à jour</button>
 </form>

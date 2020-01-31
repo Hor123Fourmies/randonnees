@@ -110,7 +110,7 @@ Il y a des petits malins qui n'hésiteront pas à essayer de pirater votre appli
 notamment en passant par le formulaire.
 
 Protéger vos arrières en vérifiant que chaque information envoyée 
-par le formulaire est valide avant de la rentrée dans la base de données.
+par le formulaire est valide avant de la rentrer dans la base de données.
 
 Vérifiez que les champs *distance*, *height_difference* et *duration* 
 soient des chiffres uniquement.
