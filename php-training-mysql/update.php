@@ -28,26 +28,11 @@ $distance = $_GET['distance'];
 $duration = $_GET['duration'];
 $height_difference = $_GET['height_difference'];
 
-
-$randonnee = "SELECT * FROM `hiking` WHERE id=$id_randonnee";
-$result = $conn->query($randonnee);
-echo $conn->error;
-
-while ($row = $result->fetch_assoc()) {
-    echo "ID de la randonnée : " . $row['id'] . "<br>";
-    echo "Nom de la randonnée : " . $row['name'] . "<br>";
-    echo "Distance à parcourir : " . $row['distance'] . "<br>";
-    echo "Durée de la randonnée : " . $row['duration'] . "<br>";
-    echo "<br>";
-}
 */
-
-
 
 ?>
 
 <?php
-
 
 $name = $_POST['name'];
 $difficulty = utf8_decode($_POST['difficulty']);
@@ -94,7 +79,6 @@ while ($row = $result->fetch_assoc()) {
 echo "<br><br>";
 
 ?>
-
 
 <a href="read.php">Liste des données</a>
 
