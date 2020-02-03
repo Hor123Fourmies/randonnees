@@ -8,6 +8,14 @@ $dbname = "reunion_island";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
+
+
+session_start();
+$session['username'] = $_POST['username'];
+$session['password'] = $_POST['password'];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +54,7 @@ $conn->select_db($dbname);
                                 <?php
                                 $id_randonnee = $row['id'];
                                 "<input type = hidden >";
-                                echo "<a href = 'update.php?id=$id_randonnee'>" .utf8_decode($row['name']) . "</a>". "<br>";?>
+                                echo "<a href = 'update.php?id=$id_randonnee'>" .utf8_encode($row['name']) . "</a>". "<br>";?>
                             </td>
                             <td>
                                 <?php echo utf8_encode($row['difficulty']) . "<br>";?>
@@ -71,6 +79,16 @@ $conn->select_db($dbname);
                     }
 ?>
     </table>
+
+    <form action="create.php" method="post">
+        <button type="submit" name="button" style="background: green; color: white">Ajouter une randonnée</button>
+    </form>
+
+
+    <form action="logout.php" method="post">
+        <button type="submit" name="button" style="background: red; color: white">Se déconnecter</button>
+    </form>
+
   </body>
 </html>
 

@@ -9,7 +9,6 @@
 
 <?php
 
-session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -34,8 +33,13 @@ $height_difference = $_GET['height_difference'];
 
 <?php
 
+session_start();
+$session['username'] = $_POST['username'];
+$session['password'] = $_POST['password'];
+
+
 $name = $_POST['name'];
-$difficulty = utf8_decode($_POST['difficulty']);
+$difficulty = utf8_encode($_POST['difficulty']);
 $distance = $_POST['distance'];
 $duration = $_POST['duration'];
 $height_difference = $_POST['height_difference'];
@@ -95,11 +99,11 @@ echo "<br><br>";
     <div>
         <label for="difficulty">Difficulté</label>
         <select name="difficulty">
-            <option value="tres facile"<?php if (utf8_decode($row['difficulty']) === 'tres facile') { echo "selected = 'selected'";}?>>Tres facile</option>
-            <option value="facile"<?php if (utf8_decode($row['difficulty']) === 'facile') { echo "selected = 'selected'";} ?>>Facile</option>
-            <option value="moyen"<?php if (utf8_decode($row['difficulty']) === 'moyen') { echo "selected = 'selected'";} ?>>Moyen</option>
-            <option value="difficile"<?php if (utf8_decode($row['difficulty']) === 'difficile') { echo "selected = 'selected'";} ?>>Difficile</option>
-            <option value="tres difficile"<?php if (utf8_decode($row['difficulty']) === 'tres difficile') {echo "selected = 'selected'";}?>>Tres difficile</option>
+            <option value="tres facile"<?php if (utf8_encode($row['difficulty']) === 'tres facile') { echo "selected = 'selected'";}?>>Tres facile</option>
+            <option value="facile"<?php if (utf8_encode($row['difficulty']) === 'facile') { echo "selected = 'selected'";} ?>>Facile</option>
+            <option value="moyen"<?php if (utf8_encode($row['difficulty']) === 'moyen') { echo "selected = 'selected'";} ?>>Moyen</option>
+            <option value="difficile"<?php if (utf8_encode($row['difficulty']) === 'difficile') { echo "selected = 'selected'";} ?>>Difficile</option>
+            <option value="tres difficile"<?php if (utf8_encode($row['difficulty']) === 'tres difficile') {echo "selected = 'selected'";}?>>Tres difficile</option>
         </select>
     </div>
 

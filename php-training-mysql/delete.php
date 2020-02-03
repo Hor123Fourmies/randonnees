@@ -5,7 +5,6 @@
 <?php
 /**** Supprimer une randonnée ****/
 
-session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -14,6 +13,13 @@ $dbname = "reunion_island";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
+
+
+session_start();
+$session['username'] = $_POST['username'];
+$session['password'] = $_POST['password'];
+
+
 $id_randonnee = $_GET['id'];
 
 $name = $_GET['name'];

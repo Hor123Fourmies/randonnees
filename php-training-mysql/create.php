@@ -7,6 +7,14 @@ $dbname = "reunion_island";
 
 $conn = new mysqli($servername, $username, $password);
 $conn->select_db($dbname);
+
+
+
+session_start();
+$session['username'] = $_POST['username'];
+$session['password'] = $_POST['password'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +26,7 @@ $conn->select_db($dbname);
 </head>
 <body>
 
-	<a href="/php-pdo/read.php">Liste des données</a>
+	<a href="read.php">Liste des données</a>
 	<h1>Ajouter</h1>
 	<form action="" method="post">
 		<div>
@@ -29,11 +37,11 @@ $conn->select_db($dbname);
 		<div>
 			<label for="difficulty">Difficulté</label>
 			<select name="difficulty">
-				<option value="très facile">Très facile</option>
+				<option value="tres facile">Tres facile</option>
 				<option value="facile">Facile</option>
 				<option value="moyen">Moyen</option>
 				<option value="difficile">Difficile</option>
-				<option value="très difficile">Très difficile</option>
+				<option value="tres difficile">Très difficile</option>
 			</select>
 		</div>
 		
