@@ -11,8 +11,12 @@ $conn->select_db($dbname);
 
 
 session_start();
-$session['username'] = $_POST['username'];
-$session['password'] = $_POST['password'];
+if(isset($_POST['username'])){
+    $session['username'] = $_POST['username'];
+}
+if(isset($_POST['password'])){
+    $session['password'] = $_POST['password'];
+}
 
 
 ?>
@@ -68,12 +72,21 @@ $session['password'] = $_POST['password'];
 //echo $_POST ['difficulty'];
 //$difficulte = $_POST['difficulty'];
 
-
-$name = $_POST['name'];
-$difficulty = $_POST['difficulty'];
-$distance = $_POST['distance'];
-$duration = $_POST['duration'];
-$height_difference = $_POST['height_difference'];
+if(isset($_POST['name'])){
+    $name = $_POST['name'];
+}
+if(isset($_POST['difficulty'])){
+    $difficulty = $_POST['difficulty'];
+}
+if(isset($_POST['distance'])){
+    $distance = $_POST['distance'];
+}
+if(isset($_POST['duration'])){
+    $duration = $_POST['distance'];
+}
+if(isset($_POST['height_difference'])){
+    $height_difference = $_POST['height_difference'];
+}
 
 
 $stmt = $conn->prepare("INSERT INTO hiking (name, difficulty, distance, duration, height_difference) VALUES (?,?,?,?,?)");

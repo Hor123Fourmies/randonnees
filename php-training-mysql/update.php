@@ -34,26 +34,46 @@ $height_difference = $_GET['height_difference'];
 <?php
 
 session_start();
-$session['username'] = $_POST['username'];
-$session['password'] = $_POST['password'];
+
+if(isset($_POST['username'])){
+    $session['username'] = $_POST['username'];
+}
+if(isset($_POST['password'])){
+    $session['password'] = $_POST['password'];
+}
 
 
-$name = $_POST['name'];
-$difficulty = utf8_encode($_POST['difficulty']);
-$distance = $_POST['distance'];
-$duration = $_POST['duration'];
-$height_difference = $_POST['height_difference'];
+if(isset($_POST['name'])){
+    $name = $_POST['name'];
+}
+if(isset($_POST['difficulty'])){
+    $difficulty = $_POST['difficulty'];
+}
+if(isset($_POST['distance'])){
+    $distance = $_POST['distance'];
+}
+if(isset($_POST['duration'])){
+    $duration = $_POST['distance'];
+}
+if(isset($_POST['height_difference'])){
+    $height_difference = $_POST['height_difference'];
+}
 
-$id_randonnee = $_GET['id'];
+if(isset($_GET['id'])){
+    $id_randonnee = $_GET['id'];
+}
 
-$id_randonnee_post = $_POST['id'];
+if(isset($_POST['id'])){
+    $id_randonnee_post = $_POST['id'];
+}
 
+/*
 if(empty($name)) {
     echo 'La variable $name existe !';
 } else {
     echo 'La variable $name n\'existe pas...';
 }
-
+*/
 
 /*
 if (isset($name) && isset($difficulty) && isset($distance) && isset($duration) && isset ($height_difference)){

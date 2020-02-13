@@ -11,9 +11,13 @@ $conn->select_db($dbname);
 
 
 session_start();
-$session['username'] = $_POST['username'];
-$session['password'] = $_POST['password'];
 
+if(isset($_POST['username'])){
+    $session['username'] = $_POST['username'];
+}
+if(isset($_POST['password'])){
+    $session['password'] = $_POST['password'];
+}
 
 
 ?>

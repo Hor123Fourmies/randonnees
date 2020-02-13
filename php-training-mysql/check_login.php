@@ -14,8 +14,12 @@ $conn->select_db($dbname);
 
 //session_start();
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+if(isset($_POST['username'])){
+    $username = $_POST['username'];
+}
+if(isset($_POST['password'])){
+    $password = $_POST['password'];
+}
 
 //var_dump($username);
 //var_dump($password);

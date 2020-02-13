@@ -22,11 +22,21 @@ $session['password'] = $_POST['password'];
 
 $id_randonnee = $_GET['id'];
 
-$name = $_GET['name'];
-$difficulty = $_GET['difficulty'];
-$distance = $_GET['distance'];
-$duration = $_GET['duration'];
-$height_difference = $_GET['height_difference'];
+if(isset($_POST['name'])){
+    $name = $_POST['name'];
+}
+if(isset($_POST['difficulty'])){
+    $difficulty = $_POST['difficulty'];
+}
+if(isset($_POST['distance'])){
+    $distance = $_POST['distance'];
+}
+if(isset($_POST['duration'])){
+    $duration = $_POST['distance'];
+}
+if(isset($_POST['height_difference'])){
+    $height_difference = $_POST['height_difference'];
+}
 
 echo "<br>";
 
